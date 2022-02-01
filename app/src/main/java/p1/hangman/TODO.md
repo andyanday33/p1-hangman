@@ -15,6 +15,9 @@
 
 ### 2. App class
 
+- method name doStuff is not appropriate.
+- GameState g is not used inside doStuff()
+
 ### 4. Words class
 - Variable names are bad.
 - States only has Alabama in it.
