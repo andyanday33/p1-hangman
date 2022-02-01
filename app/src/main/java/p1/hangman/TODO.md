@@ -12,11 +12,16 @@
 
 - Code is not documented.
 - There are zero comments.
+- The game is giving more than 2 hints.
 
 ### 2. App class
 
 - method name doStuff is not appropriate.
 - GameState g is not used inside doStuff()
+
+## 3. CommandOpts class
+
+- WordSource is always "".
 
 ### 4. Words class
 - Variable names are bad.
