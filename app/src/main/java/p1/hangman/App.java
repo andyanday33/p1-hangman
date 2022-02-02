@@ -2,8 +2,18 @@ package p1.hangman;
 
 import java.util.Scanner;
 
+/**
+ * This is the class where the main method is located. main method calls the gameSequence() method to run the game,
+ * every sequence/round in the game is handled inside gameSequence() until the game ends.
+ */
 public class App {
 
+	/**
+	 * The game is being run inside this method, every sequence/round/guess is being handled inside this.
+	 * @param sc Scanner to take user input from the console.
+	 * @param opts Contains metadata about the game, how many guesses each player is going to have,
+	 *                source of words, etc.
+	 */
 	static void gameSequence(Scanner sc, CommandOpts opts) {
 
 		GameState g;
@@ -42,6 +52,7 @@ public class App {
 			System.out.println("You lost!");
 			System.out.println("The word was " + g.word);
 	}
+
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
