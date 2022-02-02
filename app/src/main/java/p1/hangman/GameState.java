@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 // The game state
+
+/**
+ * This class contains methods to handle the game logic such as guessing a word, winning and losing.
+ */
 public class GameState {
 	public String word; // letters
 	public int g;
@@ -11,14 +15,14 @@ public class GameState {
 	public int h;
 	
 	ArrayList<Integer> got;
-	ArrayList<Integer> not = new ArrayList<Integer>();
+	ArrayList<Integer> not = new ArrayList<>();
 	
 	public Scanner sc = new Scanner(System.in).useDelimiter("\n");
 	
 	public GameState(String target, int g, int h) {
 		this.word = target;
 
-		   got = new ArrayList<Integer>();
+		   got = new ArrayList<>();
 		
 		for(int i = 0; i < target.length(); ++i) {
 			not.add(i);
@@ -38,7 +42,7 @@ public class GameState {
 				System.out.print("-");
 			}
 		}
-		System.out.println("");
+		System.out.println();
 		// System.out.println(missing);
 	}
 	
@@ -51,7 +55,7 @@ public class GameState {
 		String str = sc.next();
 		
 		if (str.length() > 1) {
-			if (str==word) {
+			if (str.equals(word)) {
 				not.clear();
 				return true;
 			} else return false;
@@ -78,11 +82,11 @@ public class GameState {
 	}
 	
 	boolean won() {
-		if (not.size() == 0) return true; else return false;
+		return not.size() == 0;
 	}
 
 	boolean lost() {
-		if (not.size() > 0 && wrong == 0) return true; else return false;
+		return not.size() > 0 && wrong == 0;
 	}
 
 	void hint() {
