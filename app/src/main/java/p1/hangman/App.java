@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
 
-	static void doStuff(Scanner sc, CommandOpts opts) {
+	static void gameSequence(Scanner sc, CommandOpts opts) {
 
 		GameState g;
 		boolean correct;
@@ -49,7 +49,7 @@ public class App {
 
 		opts = new CommandOpts(args);
 
-		doStuff(sc, opts);
+		gameSequence(sc, opts);
 
 	}
 }
