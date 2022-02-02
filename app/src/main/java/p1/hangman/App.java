@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class App {
 
-	static void doStuff(Scanner sc, CommandOpts opts, GameState g) {
+	static void doStuff(Scanner sc, CommandOpts opts) {
 
+		GameState g;
 		boolean correct;
 
-		if (opts.wordsource == "") {
+		if (opts.wordsource.equals("")) {
 
 			System.out.println("  1. Counties");
 			System.out.println("  2. Countries");
@@ -44,12 +45,11 @@ public class App {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		GameState g = null;
 		CommandOpts opts;
 
 		opts = new CommandOpts(args);
 
-		doStuff(sc, opts, g);
+		doStuff(sc, opts);
 
 	}
 }
