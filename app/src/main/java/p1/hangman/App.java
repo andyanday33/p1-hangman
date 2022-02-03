@@ -16,7 +16,7 @@ public class App {
 	 */
 	static void gameSequence(Scanner sc, CommandOpts opts) {
 
-		GameState g;
+		GameState game;
 		boolean correct;
 
 		if (opts.wordsource.equals("")) {
@@ -28,29 +28,29 @@ public class App {
 
 			System.out.print("Pick a category:");
 
-			g = new GameState(Words.randomWord(sc.nextInt()), opts.maxguesses, opts.maxhints);
+			game = new GameState(Words.randomWord(sc.nextInt()), opts.maxguesses, opts.maxhints);
 		} else {
-			g = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
+			game = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
 		}
 
-		while (!g.won() && !g.lost()) {
-			g.showWord(g.getWord());
+		while (!game.won() && !game.lost()) {
+			game.showWord(game.getWord());
 
-			System.out.println("Guesses remaining: " + g.getRemainingGuesses());
+			System.out.println("Guesses remaining: " + game.getRemainingGuesses());
 
-			correct = g.guessLetter();
+			correct = game.guessLetter();
 
 			if (correct) System.out.println("Good guess!");
 			if (!correct) System.out.println("Wrong guess!");
 		}
 
-		if (g.won()) {
+		if (game.won()) {
 			System.out.println("Well done!");
-			System.out.println("You took " + g.getGuessesMade() + " guesses");
+			System.out.println("You took " + game.getGuessesMade() + " guesses");
 		}
 		else
 			System.out.println("You lost!");
-			System.out.println("The word was " + g.getWord());
+			System.out.println("The word was " + game.getWord());
 	}
 
 
