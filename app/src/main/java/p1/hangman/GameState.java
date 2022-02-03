@@ -14,8 +14,8 @@ public class GameState {
 	public int remainingGuesses;
 	public int noOfHints;
 	
-	ArrayList<Integer> got;
-	ArrayList<Integer> not = new ArrayList<>();
+	ArrayList<Integer> guessedLetters;
+	ArrayList<Integer> remainingLetters = new ArrayList<>();
 	
 	public Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
@@ -28,10 +28,10 @@ public class GameState {
 	public GameState(String targetWord, int maxGuesses, int maxHints) {
 		this.word = targetWord;
 
-		   got = new ArrayList<>();
+		   guessedLetters = new ArrayList<>();
 		
 		for(int i = 0; i < targetWord.length(); ++i) {
-			not.add(i);
+			remainingLetters.add(i);
 		}
 		//System.out.println(missing);
 		
@@ -47,7 +47,7 @@ public class GameState {
 	 */
 	void showWord(String word) {
 		for (int i = 0; i < word.length(); ++i) {
-			if (got.contains(i)) {
+			if (guessedLetters.contains(i)) {
 				System.out.print(word.charAt(i));
 			} else {
 				System.out.print("-");
@@ -73,7 +73,7 @@ public class GameState {
 		
 		if (str.length() > 1) {
 			if (str.equals(word)) {
-				not.clear();
+				remainingLetters.clear();
 				return true;
 			} else return false;
 		}
@@ -85,9 +85,9 @@ public class GameState {
 			return false;
 		}
 		
-		for(i = 0; i < not.size(); ++i) { // Loop over the not got
-			if (Character.toLowerCase(word.charAt(not.get(i))) == letter) {
-				got.add(not.remove(i));
+		for(i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
+			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) == letter) {
+				guessedLetters.add(remainingLetters.remove(i));
 				guessesMade++;
 				return true;
 			}
@@ -103,7 +103,7 @@ public class GameState {
 	 * @return true if the number of unguessed letters is 0.
 	 */
 	boolean won() {
-		return not.size() == 0;
+		return remainingLetters.size() == 0;
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class GameState {
 	 * @return true if the number of unguessed letters is more than 0 and there are no guesses remaining.
 	 */
 	boolean lost() {
-		return not.size() > 0 && remainingGuesses == 0;
+		return remainingLetters.size() > 0 && remainingGuesses == 0;
 	}
 
 	/**
