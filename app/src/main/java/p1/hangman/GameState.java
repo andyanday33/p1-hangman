@@ -9,10 +9,11 @@ import java.util.Scanner;
  * This class contains methods to handle the game logic such as guessing a word, winning and losing.
  */
 public class GameState {
-	public String word; // letters
-	public int guessesMade;
-	public int remainingGuesses;
-	public int noOfHints;
+	private String word; // letters
+
+	private int guessesMade;
+	private int remainingGuesses;
+	private int noOfHints;
 	
 	ArrayList<Integer> guessedLetters;
 	ArrayList<Integer> remainingLetters = new ArrayList<>();
@@ -64,7 +65,7 @@ public class GameState {
 	 * if the target word contains the guessed letter, false in every other situation.
 	 */
 	boolean guessLetter() {
-		int i;
+
 		char letter;
 		
 		System.out.print("Guess a letter or word (? for a hint): ");
@@ -85,7 +86,7 @@ public class GameState {
 			return false;
 		}
 		
-		for(i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
+		for(int i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
 			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) == letter) {
 				guessedLetters.add(remainingLetters.remove(i));
 				guessesMade++;
@@ -124,5 +125,39 @@ public class GameState {
 		
 		System.out.print("Try: ");
 		System.out.println(word.charAt((int)(Math.random()*word.length())));
+	}
+
+	//Getters and setters -automatically generated-
+
+	public String getWord() {
+		return word;
+	}
+
+	public void setWord(String word) {
+		this.word = word;
+	}
+
+	public int getGuessesMade() {
+		return guessesMade;
+	}
+
+	public void setGuessesMade(int guessesMade) {
+		this.guessesMade = guessesMade;
+	}
+
+	public int getRemainingGuesses() {
+		return remainingGuesses;
+	}
+
+	public void setRemainingGuesses(int remainingGuesses) {
+		this.remainingGuesses = remainingGuesses;
+	}
+
+	public int getNoOfHints() {
+		return noOfHints;
+	}
+
+	public void setNoOfHints(int noOfHints) {
+		this.noOfHints = noOfHints;
 	}
 }

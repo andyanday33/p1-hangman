@@ -34,9 +34,9 @@ public class App {
 		}
 
 		while (!g.won() && !g.lost()) {
-			g.showWord(g.word);
+			g.showWord(g.getWord());
 
-			System.out.println("Guesses remaining: " + g.wrong);
+			System.out.println("Guesses remaining: " + g.getRemainingGuesses());
 
 			correct = g.guessLetter();
 
@@ -46,11 +46,11 @@ public class App {
 
 		if (g.won()) {
 			System.out.println("Well done!");
-			System.out.println("You took " + g.g + " guesses");
+			System.out.println("You took " + g.getGuessesMade() + " guesses");
 		}
 		else
 			System.out.println("You lost!");
-			System.out.println("The word was " + g.word);
+			System.out.println("The word was " + g.getWord());
 	}
 
 

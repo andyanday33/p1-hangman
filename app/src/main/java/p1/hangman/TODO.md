@@ -23,7 +23,11 @@
 
 - WordSource is always "".
 
-### 4. Words class
+## 4. GameState class
+
+- Add getters/setters instead of directly manipulating stuff.
+
+## 5. Words class
 - Variable names are bad.
 - States only has Alabama in it.
 - Check the random indexes, seems malfunctional.
