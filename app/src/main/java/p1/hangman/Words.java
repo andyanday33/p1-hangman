@@ -3,6 +3,9 @@ package p1.hangman;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This class contains words for each category. Also is responsible for choosing a random word.
+ */
 public class Words {
 
 	static String[] words1 = { "Argyll and Bute", "Caithness",  "Kingdom of Fife",
@@ -16,7 +19,12 @@ public class Words {
 	
 	static String[] words4 = { "Alabama" };
 	static ArrayList<String> customwords;
-	
+
+	/**
+	 * This method returns a random word for given category selected from a list of predefined words inside the program.
+	 * @param category Category id (Countries, States, etc.).
+	 * @return A randomly selected string or "INCORRECT CATEGORY" as an error.
+	 */
 	public static String randomWord(int category) {
 		if (category == 1)
 			return words1[(int)(Math.random()*9)];
@@ -28,10 +36,15 @@ public class Words {
 			return words4[(int)(Math.random()*1)];
 		return "INCORRECT CATEGORY";
 	}
-	
+
+	/**
+	 * This method returns a random word for given category from a list of predefined words outside the program.
+	 * @param wordsource Path of the file that the words are located.
+	 * @return A randomly selected word or an error message.
+	 */
 	public static String randomWord(String wordsource) {
 		String line;
-		customwords = new ArrayList<String>();
+		customwords = new ArrayList<>();
 		
 		try {
 			FileReader file = new FileReader(wordsource);
