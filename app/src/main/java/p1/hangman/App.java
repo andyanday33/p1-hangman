@@ -17,7 +17,7 @@ public class App {
 	static void gameSequence(Scanner sc, CommandOpts opts) {
 
 		GameState game;
-		boolean correct;
+		String correctness;
 
 		if (opts.wordsource.equals("")) {
 
@@ -40,10 +40,11 @@ public class App {
 
 			System.out.print("Guess a letter or word (? for a hint): ");
 
-			correct = game.guessLetter();
+			correctness = game.guessLetter();
 
-			if (correct) System.out.println("Good guess!");
-			if (!correct) System.out.println("Wrong guess!");
+			if (correctness.equals("CORRECT")) System.out.println("Good guess!");
+			else if (correctness.equals("WRONG")) System.out.println("Wrong guess!");
+			else System.out.println("Took a hint");
 		}
 
 		if (game.won()) {

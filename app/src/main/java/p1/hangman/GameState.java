@@ -64,7 +64,7 @@ public class GameState {
 	 * @return For word; true if the guessed word correct, for letter; true
 	 * if the target word contains the guessed letter, false in every other situation.
 	 */
-	boolean guessLetter() {
+	String guessLetter() {
 
 		char letter;
 		
@@ -73,28 +73,28 @@ public class GameState {
 		if (str.length() > 1) {
 			if (str.equals(word)) {
 				remainingLetters.clear();
-				return true;
-			} else return false;
+				return "CORRECT";
+			} else return "WRONG";
 		}
 		
 		letter = str.charAt(0);
 		
 		if (letter == '?') {
 			hint();
-			return false;
+			return "HINT";
 		}
 		
 		for(int i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
 			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) == letter) {
 				guessedLetters.add(remainingLetters.remove(i));
 				guessesMade++;
-				return true;
+				return "CORRECT";
 			}
 		}
 
 		guessesMade++; // One more guess
 		remainingGuesses--;
-		return false;
+		return "WRONG";
 	}
 
 	/**

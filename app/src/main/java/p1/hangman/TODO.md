@@ -13,7 +13,7 @@
 - Code is not documented.
 - There are zero comments.
 - The game is giving more than 2 hints.
-- The game is giving a "Wrong Guess!" feedback when taking a hint.
+- The game is giving a "Wrong Guess!" feedback when taking a hint. _DONE_
 - Guessing capital letters are not working.
 - 
 
