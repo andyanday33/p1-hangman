@@ -9,7 +9,7 @@ import java.util.Scanner;
  * This class contains methods to handle the game logic such as guessing a word, winning and losing.
  */
 public class GameState {
-	private String word; // letters
+	private final String word; // letters
 
 	private int guessesMade;
 	private int remainingGuesses;
@@ -121,10 +121,12 @@ public class GameState {
 	void hint() {
 		if (noOfHints == 0) {
 			System.out.println("No more hints allowed");
+		} else {
+			noOfHints--;
+			System.out.print("Try: ");
+			System.out.println(word.charAt((int)(Math.random()*word.length())));
 		}
-		
-		System.out.print("Try: ");
-		System.out.println(word.charAt((int)(Math.random()*word.length())));
+
 	}
 
 	//Getters and setters -automatically generated-
@@ -133,31 +135,12 @@ public class GameState {
 		return word;
 	}
 
-	public void setWord(String word) {
-		this.word = word;
-	}
-
 	public int getGuessesMade() {
 		return guessesMade;
-	}
-
-	public void setGuessesMade(int guessesMade) {
-		this.guessesMade = guessesMade;
 	}
 
 	public int getRemainingGuesses() {
 		return remainingGuesses;
 	}
 
-	public void setRemainingGuesses(int remainingGuesses) {
-		this.remainingGuesses = remainingGuesses;
-	}
-
-	public int getNoOfHints() {
-		return noOfHints;
-	}
-
-	public void setNoOfHints(int noOfHints) {
-		this.noOfHints = noOfHints;
-	}
 }
