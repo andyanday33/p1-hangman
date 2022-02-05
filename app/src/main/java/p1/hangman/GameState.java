@@ -68,8 +68,6 @@ public class GameState {
 
 		char letter;
 		
-		System.out.print("Guess a letter or word (? for a hint): ");
-		
 		String str = sc.next();
 		
 		if (str.length() > 1) {

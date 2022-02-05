@@ -38,6 +38,8 @@ public class App {
 
 			System.out.println("Guesses remaining: " + game.getRemainingGuesses());
 
+			System.out.print("Guess a letter or word (? for a hint): ");
+
 			correct = game.guessLetter();
 
 			if (correct) System.out.println("Good guess!");
