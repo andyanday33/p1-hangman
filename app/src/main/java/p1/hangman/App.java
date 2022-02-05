@@ -53,7 +53,10 @@ public class App {
 			System.out.println("The word was " + game.getWord());
 	}
 
-
+	/**
+	 * Main method, creates a Scanner, CommandOpts object and gameSequence object.
+	 * @param args console arguments.
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		CommandOpts opts;

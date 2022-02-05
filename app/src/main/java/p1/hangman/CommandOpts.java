@@ -1,12 +1,19 @@
 package p1.hangman;
 
+/**
+ * This class contains options for a game.
+ */
 public class CommandOpts {
 
 	public int maxguesses;
 	public int maxhints;
 	
 	String wordsource;
-	
+
+	/**
+	 * Constructor class, takes an array of arguments to manipulate game options such as maxguesses and maxhints.
+	 * @param args Array of arguments that contains game options.
+	 */
 	CommandOpts(String[] args) {
 		maxguesses = 10;
 		maxhints = 2;
