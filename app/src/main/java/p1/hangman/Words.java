@@ -17,7 +17,9 @@ public class Words {
 	static String[] words3 = { "St Andrews", "Edinburgh", "Glasgow", "Kirkcaldy", "Perth",
 			            "Dundee", "Stirling", "Inverness", "Aberdeen", "Falkirk" };
 	
-	static String[] words4 = { "Alabama" };
+	static String[] words4 = { "Alabama", "Ohio", "Texas", "California", "Washington", "North Carolina",
+						"Florida", "Hawaii", "New Jersey", "Colorado", "Arizona", "Georgia", "Kentucky",
+						"Illinois", "Minnesota", "Utah", "Wisconsin", "Indiana", "Arkansas"};
 	static ArrayList<String> customwords;
 
 	/**
