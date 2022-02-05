@@ -8,16 +8,16 @@ import java.util.ArrayList;
  */
 public class Words {
 
-	static String[] words1 = { "Argyll and Bute", "Caithness",  "Kingdom of Fife",
+	static String[] counties = { "Argyll and Bute", "Caithness",  "Kingdom of Fife",
 			            "East Lothian", "Highland", "Dumfries and Galloway",
 			            "Renfrewshire", "Scottish Borders", "Perth and Kinross" };
-	static String[] words2 = { "Scotland", "England", "Wales", "Northern Ireland", "Ireland", 
+	static String[] countries = { "Scotland", "England", "Wales", "Northern Ireland", "Ireland",
 			            "France", "Germany", "Netherlands", "Spain", "Portugal",
 			            "Belgium", "Luxembourg", "Switzerland", "Italy", "Greece" };
-	static String[] words3 = { "St Andrews", "Edinburgh", "Glasgow", "Kirkcaldy", "Perth",
+	static String[] cities = { "St Andrews", "Edinburgh", "Glasgow", "Kirkcaldy", "Perth",
 			            "Dundee", "Stirling", "Inverness", "Aberdeen", "Falkirk" };
 	
-	static String[] words4 = { "Alabama", "Ohio", "Texas", "California", "Washington", "North Carolina",
+	static String[] states = { "Alabama", "Ohio", "Texas", "California", "Washington", "North Carolina",
 						"Florida", "Hawaii", "New Jersey", "Colorado", "Arizona", "Georgia", "Kentucky",
 						"Illinois", "Minnesota", "Utah", "Wisconsin", "Indiana", "Arkansas"};
 	static ArrayList<String> customwords;
@@ -29,13 +29,13 @@ public class Words {
 	 */
 	public static String randomWord(int category) {
 		if (category == 1)
-			return words1[(int)(Math.random()*9)];
+			return counties[(int)(Math.random() * (counties.length - 1))];
 		if (category == 2)
-			return words2[(int)(Math.random()*15)];
+			return countries[(int)(Math.random() * (countries.length - 1))];
 		if (category == 3)
-			return words3[(int)(Math.random()*10)];
+			return cities[(int)(Math.random()* (cities.length - 1))];
 		if (category == 4)
-			return words4[(int)(Math.random()*1)];
+			return states[(int)(Math.random() * (states.length - 1))];
 		return "INCORRECT CATEGORY";
 	}
 
