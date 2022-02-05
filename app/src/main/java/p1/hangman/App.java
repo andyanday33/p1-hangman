@@ -42,12 +42,21 @@ public class App {
 
 			correctness = game.guessLetter();
 
-			if (correctness.equals("CORRECT")) System.out.println("Good guess!");
-			else if (correctness.equals("WRONG")) System.out.println("Wrong guess!");
-			else if (correctness.equals("CANNOT TAKE HINT")) System.out.println("No more hints are allowed");
-			else {
-				System.out.println("Took a hint");
-				System.out.println("Remaining hints: " + game.getNoOfHints());
+			switch (correctness) {
+
+				case "CORRECT":
+					System.out.println("Good guess!");
+					break;
+				case "WRONG":
+					System.out.println("Wrong guess!");
+					break;
+				case "CANNOT TAKE HINT":
+					System.out.println("No more hints are allowed");
+					break;
+				case "HINT":
+					System.out.println("Took a hint");
+					System.out.println("Remaining hints: " + game.getNoOfHints());
+					break;
 			}
 
 			System.out.println();
