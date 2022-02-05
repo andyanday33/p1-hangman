@@ -44,7 +44,13 @@ public class App {
 
 			if (correctness.equals("CORRECT")) System.out.println("Good guess!");
 			else if (correctness.equals("WRONG")) System.out.println("Wrong guess!");
-			else System.out.println("Took a hint");
+			else if (correctness.equals("CANNOT TAKE HINT")) System.out.println("No more hints are allowed");
+			else {
+				System.out.println("Took a hint");
+				System.out.println("Remaining hints: " + game.getNoOfHints());
+			}
+
+			System.out.println();
 		}
 
 		if (game.won()) {

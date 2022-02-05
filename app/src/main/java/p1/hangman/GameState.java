@@ -80,8 +80,9 @@ public class GameState {
 		letter = str.charAt(0);
 		
 		if (letter == '?') {
-			hint();
-			return "HINT";
+			if(hint()) return "HINT";
+			else return "CANNOT TAKE HINT";
+
 		}
 		
 		for(int i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
@@ -116,13 +117,14 @@ public class GameState {
 	/**
 	 * Prints out a hint if the number of hints is not 0.
 	 */
-	void hint() {
+	boolean hint() {
 		if (noOfHints == 0) {
-			System.out.println("No more hints allowed");
+			return false;
 		} else {
 			noOfHints--;
 			System.out.print("Try: ");
 			System.out.println(word.charAt((int)(Math.random()*word.length())));
+			return true;
 		}
 
 	}
@@ -139,6 +141,10 @@ public class GameState {
 
 	public int getRemainingGuesses() {
 		return remainingGuesses;
+	}
+
+	public int getNoOfHints() {
+		return noOfHints;
 	}
 
 }
