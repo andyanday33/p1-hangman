@@ -58,6 +58,9 @@ public class App {
 					System.out.println("Took a hint");
 					System.out.println("Remaining hints: " + game.getNoOfHints());
 					break;
+				case "SAME GUESS TWICE":
+					System.out.println("You have already guessed this letter");
+					break;
 				default:
 					System.out.println("Invalid input");
 					break;

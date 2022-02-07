@@ -15,9 +15,10 @@ public class GameState {
 	private int guessesMade;
 	private int remainingGuesses;
 	private int noOfHints;
-	
-	ArrayList<Integer> guessedLetters;
-	ArrayList<Integer> remainingLetters = new ArrayList<>();
+
+	private final ArrayList<Character> guessesSoFar;
+	private final ArrayList<Integer> guessedLetters;
+	private final ArrayList<Integer> remainingLetters;
 	
 	public Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8).useDelimiter("\n");
 
@@ -30,7 +31,9 @@ public class GameState {
 	public GameState(String targetWord, int maxGuesses, int maxHints) {
 		this.word = targetWord;
 
-		   guessedLetters = new ArrayList<>();
+		remainingLetters = new ArrayList<>();
+		guessedLetters = new ArrayList<>();
+		guessesSoFar = new ArrayList<>();
 		
 		for(int i = 0; i < targetWord.length(); ++i) {
 			remainingLetters.add(i);
@@ -62,8 +65,10 @@ public class GameState {
 	/**
 	 * The method that is handling guessing a letter/word logic. Categorizes the input as word-letter-hint and treats
 	 * differently in every situation.
-	 * @return For word; true if the guessed word correct, for letter; true
-	 * if the target word contains the guessed letter, false in every other situation.
+	 * @return String 'CORRECT' if the guess is correct, 'WRONG' if the guess is wrong, 'INVALID INPUT' if the
+	 * input is non alphabetic, nor whitespace, 'HINT' if guess is '?' and player can take a hint, 'CANNOT TAKE HINT'
+	 * if guess is '?' and player has no hints remaining, and 'SAME GUESS TWICE' if the player has already guessed
+	 * the letter he entered.
 	 */
 	String guessLetter() {
 
@@ -86,6 +91,16 @@ public class GameState {
 			else return "CANNOT TAKE HINT";
 
 		}
+
+		if (!Character.isAlphabetic(letter) && !Character.isWhitespace(letter)) {
+			return "INVALID INPUT";
+		}
+
+		if (guessesSoFar.contains(letter)){
+			return "SAME GUESS TWICE";
+		}
+
+		guessesSoFar.add(letter);
 		
 		for(int i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
 			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) ==
@@ -128,7 +143,7 @@ public class GameState {
 		} else {
 			noOfHints--;
 			System.out.print("Try: ");
-			System.out.println(word.charAt((int)(Math.random()*word.length())));
+			System.out.println(word.charAt(remainingLetters.get((int) (Math.random() * (remainingLetters.size() - 1)))));
 			return true;
 		}
 
