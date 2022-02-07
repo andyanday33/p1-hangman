@@ -1,5 +1,6 @@
 package p1.hangman;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
@@ -57,6 +58,9 @@ public class App {
 					System.out.println("Took a hint");
 					System.out.println("Remaining hints: " + game.getNoOfHints());
 					break;
+				default:
+					System.out.println("Invalid input");
+					break;
 			}
 
 			System.out.println();
@@ -75,8 +79,9 @@ public class App {
 	 * Main method, creates a Scanner, CommandOpts object and gameSequence object.
 	 * @param args console arguments.
 	 */
+
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
 		CommandOpts opts;
 
 		opts = new CommandOpts(args);

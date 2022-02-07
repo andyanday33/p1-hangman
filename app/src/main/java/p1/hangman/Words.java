@@ -1,6 +1,7 @@
 package p1.hangman;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
@@ -47,13 +48,17 @@ public class Words {
 	public static String randomWord(String wordsource) {
 		String line;
 		customwords = new ArrayList<>();
-		
+		FileReader file;
+		BufferedReader reader;
 		try {
-			FileReader file = new FileReader(wordsource);
-			BufferedReader reader = new BufferedReader(file);
+			file = new FileReader(wordsource, StandardCharsets.UTF_8);
+			reader = new BufferedReader(file);
 			while((line = reader.readLine()) != null) {
                 customwords.add(line);
             }
+			file.close();
+			reader.close();
+
 			return customwords.get((int)(Math.random()*customwords.size()));
 		} catch(FileNotFoundException e) {
 			System.out.println("File error");
@@ -61,6 +66,6 @@ public class Words {
 		} catch(IOException e) {
 		System.out.println("IO error");
 		return "IO ERROR";
-	}
+		}
 	}
 }

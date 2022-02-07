@@ -17,6 +17,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.github.spotbugs:spotbugs-annotations:4.0.1'
+
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13'
 
