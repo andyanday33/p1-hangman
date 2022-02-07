@@ -67,11 +67,12 @@ public class GameState {
 	String guessLetter() {
 
 		char letter;
+		boolean found = false;
 		
 		String str = sc.next();
 		
 		if (str.length() > 1) {
-			if (str.equals(word)) {
+			if (str.equalsIgnoreCase(word)) {
 				remainingLetters.clear();
 				return "CORRECT";
 			} else return "WRONG";
@@ -86,12 +87,15 @@ public class GameState {
 		}
 		
 		for(int i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
-			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) == letter) {
+			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) ==
+					Character.toLowerCase(letter)) {
 				guessedLetters.add(remainingLetters.remove(i));
 				guessesMade++;
-				return "CORRECT";
+				found = true;
 			}
 		}
+
+		if (found) return "CORRECT";
 
 		guessesMade++; // One more guess
 		remainingGuesses--;
