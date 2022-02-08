@@ -1,8 +1,6 @@
 package p1.hangman;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 // The game state
 
@@ -69,7 +67,7 @@ public class GameState {
      * input as word-letter-hint and treats differently in every situation.
      *
      * @return String 'CORRECT' if the guess is correct, 'WRONG' if the guess is wrong,
-     *     'INVALID INPUT' if the input is non alphabetic, nor whitespace,
+     *     'INVALID INPUT' if the input is non-alphabetic, nor whitespace,
      *     'HINT' if guess is '?' and player can take a hint, 'CANNOT TAKE HINT'
      *     if guess is '?' and player has no hints remaining, and 'SAME GUESS TWICE'
      *     if the player has already guessed the letter he entered.
@@ -125,7 +123,7 @@ public class GameState {
     /**
      * Checks if the game is won or not.
      *
-     * @return true if the number of unguessed letters is 0.
+     * @return true if the number of non-guessed letters is 0.
      */
     boolean won() {
         return remainingLetters.size() == 0;
@@ -134,7 +132,7 @@ public class GameState {
     /**
      * Checks if the game is lost or not.
      *
-     * @return true if the number of unguessed letters is more
+     * @return true if the number of non-guessed letters is more
      *     than 0 and there are no guesses remaining.
      *
      */
