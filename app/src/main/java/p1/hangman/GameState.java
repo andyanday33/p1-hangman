@@ -100,23 +100,10 @@ public class GameState {
 		}
 
 		guessesSoFar.add(letter);
+		guessesMade++;
 
-		//Lookup that if the letter guessed exists in the word.
-		for( int i = 0; i < remainingLetters.size(); ++i ) {
+		if (isLetterInWord(letter)) return "CORRECT";
 
-			char charFromWord = word.charAt(remainingLetters.get(i));
-
-			if (Character.toLowerCase(charFromWord) ==
-					Character.toLowerCase(letter)) {
-				guessedLetters.add(remainingLetters.remove(i));
-				guessesMade++;
-				found = true;
-			}
-		}
-
-		if (found) return "CORRECT";
-
-		guessesMade++; // One more guess
 		remainingGuesses--;
 		return "WRONG";
 	}
@@ -170,16 +157,37 @@ public class GameState {
 		return noOfHints;
 	}
 
-	//TODO: Implement this logic
+	/**
+	 * This method checks if the given letter appears inside the word at least once.
+	 * @param letter letter that is going to be checked.
+	 * @return true if the letter appears inside the word at least once.
+	 */
 	public boolean isLetterInWord(char letter) {
-		return false;
+
+		boolean found = false;
+
+		for( int i = 0; i < remainingLetters.size(); ++i ) {
+
+			char charFromWord = word.charAt(remainingLetters.get(i));
+
+			if (Character.toLowerCase(charFromWord) ==
+					Character.toLowerCase(letter)) {
+				guessedLetters.add(remainingLetters.remove(i));
+				found = true; // Since we are not looking for only one letter x but all the letters x that
+				//appears inside the word, we cannot return true inside here, we will find and remove every letter x,
+				//and then return the value of 'found'.
+			}
+		}
+		return found;
 	}
 
+	/**
+	 * This method checks if the input letter given by the player is valid.
+	 * @param letter the input letter given by the player.
+	 * @return true if the letter is alphabetic or a whitespace.
+	 */
 	public boolean isValidInput(char letter) {
-		if (Character.isAlphabetic(letter) || Character.isWhitespace(letter)) {
-			return true;
-		}
-		return false;
+		return Character.isAlphabetic(letter) || Character.isWhitespace(letter);
 	}
 
 }
