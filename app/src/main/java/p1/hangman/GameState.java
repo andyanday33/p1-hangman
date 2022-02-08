@@ -89,10 +89,9 @@ public class GameState {
 		if (letter == '?') {
 			if(hint()) return "HINT";
 			else return "CANNOT TAKE HINT";
-
 		}
 
-		if (!Character.isAlphabetic(letter) && !Character.isWhitespace(letter)) {
+		if (!isValidInput(letter)) {
 			return "INVALID INPUT";
 		}
 
@@ -101,9 +100,13 @@ public class GameState {
 		}
 
 		guessesSoFar.add(letter);
-		
-		for(int i = 0; i < remainingLetters.size(); ++i) { // Loop over the not got
-			if (Character.toLowerCase(word.charAt(remainingLetters.get(i))) ==
+
+		//Lookup that if the letter guessed exists in the word.
+		for( int i = 0; i < remainingLetters.size(); ++i ) {
+
+			char charFromWord = word.charAt(remainingLetters.get(i));
+
+			if (Character.toLowerCase(charFromWord) ==
 					Character.toLowerCase(letter)) {
 				guessedLetters.add(remainingLetters.remove(i));
 				guessesMade++;
@@ -165,6 +168,18 @@ public class GameState {
 
 	public int getNoOfHints() {
 		return noOfHints;
+	}
+
+	//TODO: Implement this logic
+	public boolean isLetterInWord(char letter) {
+		return false;
+	}
+
+	public boolean isValidInput(char letter) {
+		if (Character.isAlphabetic(letter) || Character.isWhitespace(letter)) {
+			return true;
+		}
+		return false;
 	}
 
 }
