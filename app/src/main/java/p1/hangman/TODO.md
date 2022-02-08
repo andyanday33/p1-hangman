@@ -10,17 +10,17 @@
 
 ### 1. General
 
-- Code is not documented.
-- There are zero comments.
-- The game is giving more than 2 hints.
+- Code is not documented. _DONE_
+- There are zero comments. _DONE_
+- The game is giving more than 2 hints. _DONE_
 - The game is giving a "Wrong Guess!" feedback when taking a hint. _DONE_
-- Guessing capital letters are not working.
+- Guessing capital letters are not working. _DONE_
 - 
 
 ### 2. App class
 
 - method name doStuff is not appropriate. _DONE_
-- GameState g is not used inside doStuff() 
+- GameState g is not used inside doStuff()  _DONE_
 
 ## 3. CommandOpts class
 
@@ -33,6 +33,6 @@
 ## 5. Words class
 
 - Variable names are bad. _DONE_
-- States only has Alabama in it.
-- Check the random indexes, seems malfunctional.
+- States only has Alabama in it. _DONE_
+- Check the random indexes, seems malfunctional. _DONE_
 - 

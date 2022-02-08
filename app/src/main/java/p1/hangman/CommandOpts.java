@@ -5,59 +5,65 @@ package p1.hangman;
  */
 public class CommandOpts {
 
-	private int maxguesses;
-	private int maxhints;
-	private String wordsource;
+    private int maxguesses;
+    private int maxhints;
+    private String wordsource;
 
-	/**
-	 * Constructor class, takes an array of arguments to manipulate game options such as maxguesses and maxhints.
-	 * @param args Array of arguments that contains game options.
-	 */
-	CommandOpts(String[] args) {
-		maxguesses = 10;
-		maxhints = 2;
-		
-		wordsource = "";
-		
-		for(int i = 0; i < args.length; ++i) {
-			switch (args[i]) {
-				case "--guesses":
-					maxguesses = Integer.parseInt(args[i + 1]);
-					i++;
-					break;
-				case "--hints":
-					maxhints = Integer.parseInt(args[i + 1]);
-					i++;
-					break;
-				case "--source":
-					wordsource = args[i + 1];
-					i++;
-					break;
-			}
-		}
-	}
+    /**
+     * Constructor class, takes an array of arguments to manipulate game options
+     * such as maxguesses and maxhints.
+     *
+     * @param args Array of arguments that contains game options.
+     *
+     */
+    CommandOpts(String[] args) {
+        maxguesses = 10;
+        maxhints = 2;
 
-	public int getMaxguesses() {
-		return maxguesses;
-	}
+        wordsource = "";
 
-	public void setMaxguesses(int maxguesses) {
-		this.maxguesses = maxguesses;
-	}
+        for (int i = 0; i < args.length; ++i) {
+            switch (args[i]) {
+                case "--guesses":
+                    maxguesses = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "--hints":
+                    maxhints = Integer.parseInt(args[i + 1]);
+                    i++;
+                    break;
+                case "--source":
+                    wordsource = args[i + 1];
+                    i++;
+                    break;
+                default:
+                    i++;
+                    break;
+            }
+        }
+    }
 
-	public int getMaxhints() {
-		return maxhints;
-	}
+    public int getMaxguesses() {
+        return maxguesses;
+    }
 
-	public void setMaxhints(int maxhints) {
-		this.maxhints = maxhints;
-	}
+    public void setMaxguesses(int maxguesses) {
+        this.maxguesses = maxguesses;
+    }
 
-	public String getWordsource() {
-		return wordsource;
-	}
+    public int getMaxhints() {
+        return maxhints;
+    }
 
-	public void setWordsource(String wordsource) {
-		this.wordsource = wordsource;
-	}
+    public void setMaxhints(int maxhints) {
+        this.maxhints = maxhints;
+    }
+
+    public String getWordsource() {
+        return wordsource;
+    }
+
+    public void setWordsource(String wordsource) {
+        this.wordsource = wordsource;
+    }
 }
