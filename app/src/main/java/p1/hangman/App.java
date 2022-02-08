@@ -29,9 +29,9 @@ public class App {
 
 			System.out.print("Pick a category:");
 
-			game = new GameState(Words.randomWord(sc.nextInt()), opts.getMaxguesses(), opts.getMaxhints());
+			game = new GameState(Words.randomWord(sc.nextInt()), opts);
 		} else {
-			game = new GameState(Words.randomWord(opts.getWordsource()), opts.getMaxguesses(), opts.getMaxhints());
+			game = new GameState(Words.randomWord(opts.getWordsource()), opts);
 		}
 
 		while (!game.won() && !game.lost()) {
@@ -41,7 +41,7 @@ public class App {
 
 			System.out.print("Guess a letter or word (? for a hint): ");
 
-			correctness = game.guessLetter();
+			correctness = game.guessLetterOrWord();
 
 			switch (correctness) {
 

@@ -25,10 +25,9 @@ public class GameState {
 	/**
 	 * Constructor for GameState class.
 	 * @param targetWord target word that is going to be guessed.
-	 * @param maxGuesses maximum number of guesses for the game.
-	 * @param maxHints maximum number of hints for the game.
+	 * @param opts Options object for the game
 	 */
-	public GameState(String targetWord, int maxGuesses, int maxHints) {
+	public GameState(String targetWord, CommandOpts opts) {
 		this.word = targetWord;
 
 		remainingLetters = new ArrayList<>();
@@ -41,8 +40,8 @@ public class GameState {
 		//System.out.println(missing);
 		
 		this.guessesMade = 0; // guesses made, 0 by default
-		this.remainingGuesses = maxGuesses; // guesses remaining, max number of guesses by default
-		this.noOfHints = maxHints;
+		this.remainingGuesses = opts.getMaxguesses(); // guesses remaining, max number of guesses by default
+		this.noOfHints = opts.getMaxhints();
 	}
 
 	/**
@@ -70,7 +69,7 @@ public class GameState {
 	 * if guess is '?' and player has no hints remaining, and 'SAME GUESS TWICE' if the player has already guessed
 	 * the letter he entered.
 	 */
-	String guessLetter() {
+	String guessLetterOrWord() {
 
 		char letter;
 		

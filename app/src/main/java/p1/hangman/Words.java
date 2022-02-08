@@ -64,8 +64,8 @@ public class Words {
 			System.out.println("File error");
 			return "FILE ERROR";
 		} catch(IOException e) {
-		System.out.println("IO error");
-		return "IO ERROR";
+			System.out.println("IO error");
+			return "IO ERROR";
 		}
 	}
 }
