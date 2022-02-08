@@ -20,8 +20,6 @@ public class GameState {
     private final ArrayList<Integer> guessedLetters;
     private final ArrayList<Integer> remainingLetters;
 
-    public Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8).useDelimiter("\n");
-
     /**
      * Constructor for GameState class.
      *
@@ -32,7 +30,6 @@ public class GameState {
      */
     public GameState(String targetWord, CommandOpts opts) {
         this.word = targetWord;
-
         remainingLetters = new ArrayList<>();
         guessedLetters = new ArrayList<>();
         guessesSoFar = new ArrayList<>();
@@ -77,18 +74,17 @@ public class GameState {
      *     if guess is '?' and player has no hints remaining, and 'SAME GUESS TWICE'
      *     if the player has already guessed the letter he entered.
      */
-    String guessLetterOrWord() {
+    String guessLetterOrWord(String letterOrWord) {
 
         char letter;
 
-        String str = sc.next();
-
-        if (str.length() == 0) {
+        if (letterOrWord.length() == 0) {
             return "INVALID INPUT";
         }
 
-        if (str.length() > 1) {
-            if (str.equalsIgnoreCase(word)) {
+        if (letterOrWord.length() > 1) {
+            guessesMade++;
+            if (letterOrWord.equalsIgnoreCase(word)) {
                 remainingLetters.clear();
                 return "CORRECT";
             } else {
@@ -96,7 +92,7 @@ public class GameState {
             }
         }
 
-        letter = str.charAt(0);
+        letter = letterOrWord.charAt(0);
 
         if (letter == '?') {
             if (hint()) {

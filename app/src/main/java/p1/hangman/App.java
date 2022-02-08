@@ -52,7 +52,7 @@ class App {
                     + "(? for a hint): "
             );
 
-            correctness = game.guessLetterOrWord();
+            correctness = game.guessLetterOrWord(sc.next());
 
             switch (correctness) {
 
