@@ -20,15 +20,20 @@ public class CommandOpts {
 		wordsource = "";
 		
 		for(int i = 0; i < args.length; ++i) {
-			if (args[i].equals("--guesses")) {
-				maxguesses = Integer.parseInt(args[i+1]);
-				i++;
+			switch (args[i]) {
+				case "--guesses":
+					maxguesses = Integer.parseInt(args[i + 1]);
+					i++;
+					break;
+				case "--hints":
+					maxhints = Integer.parseInt(args[i + 1]);
+					i++;
+					break;
+				case "--source":
+					wordsource = args[i + 1];
+					i++;
+					break;
 			}
-			else if (args[i].equals("--hints")) {
-				maxhints = Integer.parseInt(args[i+1]);
-				i++;
-			}
-			else wordsource = args[i];
 		}
 	}
 

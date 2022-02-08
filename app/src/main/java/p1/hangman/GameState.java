@@ -41,7 +41,7 @@ public class GameState {
 		//System.out.println(missing);
 		
 		this.guessesMade = 0; // guesses made, 0 by default
-		remainingGuesses = maxGuesses; // guesses remaining, max number of guesses by default
+		this.remainingGuesses = maxGuesses; // guesses remaining, max number of guesses by default
 		this.noOfHints = maxHints;
 	}
 
@@ -73,10 +73,13 @@ public class GameState {
 	String guessLetter() {
 
 		char letter;
-		boolean found = false;
 		
 		String str = sc.next();
-		
+
+		if (str.length() == 0){
+			return "INVALID INPUT";
+		}
+
 		if (str.length() > 1) {
 			if (str.equalsIgnoreCase(word)) {
 				remainingLetters.clear();
